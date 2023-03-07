@@ -10,30 +10,30 @@ const Form = () => {
     const [subject, setSubject] = useState('physical')
     const {tg} = useTelegram()
 
-    const onSendData = useCallback(()=>{
+    // const onSendData = useCallback(()=>{
 
-    }, []);
+    // }, []);
 
-    useEffect(()=>{
-        Telegram.WebApp.onEvent('mainButtonClicked', onSendData);
-        return () => {
-            Telegram.WebApp.offEvent('mainButtonClicked', onSendData);
-        }
-    }, []);
+    // useEffect(()=>{
+    //     Telegram.WebApp.onEvent('mainButtonClicked', onSendData);
+    //     return () => {
+    //         Telegram.WebApp.offEvent('mainButtonClicked', onSendData);
+    //     }
+    // }, []);
 
-    useEffect(()=>{
-        tg.MainButton.setParams({
-            text: 'Отправить данные'
-        })
-    }, []);
+    // useEffect(()=>{
+    //     tg.MainButton.setParams({
+    //         text: 'Отправить данные'
+    //     })
+    // }, []);
 
-    useEffect(()=>{
-        if(!street || !country) {
-            tg.MainButton.hide();
-        } else {
-            tg.MainButton.show();
-        }
-    },[country, street]);
+    // useEffect(()=>{
+    //     if(!street || !country) {
+    //         tg.MainButton.hide();
+    //     } else {
+    //         tg.MainButton.show();
+    //     }
+    // },[country, street]);
 
     const onChangeCountry = (e) => {
         setCountry(e.target.value);
@@ -55,14 +55,14 @@ const Form = () => {
                 type='text' 
                 placeholder={'Страна'}
                 value= {country}
-                // onChange={onChangeCountry}
+                onChange={onChangeCountry}
             />
             <input 
                 className={'input'}
                 type='text' 
                 placeholder={'Улица'} 
                 value= {street}
-                // onChange={onChangeStreet}
+                onChange={onChangeStreet}
             />
             {/* <select value={subject} onChange={onChangeSubject} className={'select'}>
                 <option value={'physical'}>Юр. лицо</option>
