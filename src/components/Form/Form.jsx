@@ -64,10 +64,10 @@ const Form = () => {
                 value= {street}
                 onChange={onChangeStreet}
             />
-            <select value={subject} onChange={onChangeSubject} className={'select'}>
+            {/* <select value={subject} onChange={onChangeSubject} className={'select'}>
                 <option value={'physical'}>Юр. лицо</option>
                 <option value={'legal'}>Физ. лицо</option>
-            </select>
+            </select> */}
         </div>
     );
 };
