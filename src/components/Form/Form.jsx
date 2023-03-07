@@ -1,5 +1,4 @@
-import React, { useEffect, useState } from "react";
-import Button from "../Button/Button";
+import React, { useEffect, useState, useCallback } from "react";
 import { useTelegram } from "../../hooks/useTelegram";
 import './Form.css'
 
@@ -11,11 +10,22 @@ const Form = () => {
     const [subject, setSubject] = useState('physical')
     const {tg} = useTelegram()
 
+    const onSendData = useCallback(()=>{
+
+    }, [])
+
+    useEffect(()=>{
+        Telegram.WebApp.onEvent('mainButtonClicked', onSendData);
+        return () => {
+            Telegram.WebApp.offEvent('mainButtonClicked', onSendData);
+        }
+    }, [])
+
     useEffect(()=>{
         tg.MainButton.setParams({
             text: 'Отправить данные'
         })
-    },[])
+    }, [])
 
     useEffect(()=>{
         if(!street || !country) {
@@ -58,7 +68,7 @@ const Form = () => {
                 <option value={'legal'}>Физ. лицо</option>
             </select>
         </div>
-    )
-}
+    );
+};
 
 export default Form;
