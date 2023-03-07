@@ -5,8 +5,8 @@ import './Form.css'
 
 const Form = () => {
 
-    const [country, setCountry] = useState('')
-    const [street, setStreet] = useState('')
+    const [country, setCountry] = useState('russsia')
+    const [street, setStreet] = useState('dmmdmmd')
     const [subject, setSubject] = useState('physical')
     const {tg} = useTelegram()
 
@@ -55,14 +55,14 @@ const Form = () => {
                 type='text' 
                 placeholder={'Страна'}
                 value= {country}
-                onChange={onChangeCountry}
+                // onChange={onChangeCountry}
             />
             <input 
                 className={'input'}
                 type='text' 
                 placeholder={'Улица'} 
                 value= {street}
-                onChange={onChangeStreet}
+                // onChange={onChangeStreet}
             />
             {/* <select value={subject} onChange={onChangeSubject} className={'select'}>
                 <option value={'physical'}>Юр. лицо</option>
