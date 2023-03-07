@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Button from "../Button/Button";
 import { useTelegram } from "../../hooks/useTelegram";
 import './ProductList.css'
@@ -6,6 +6,7 @@ import './ProductList.css'
 
 const ProductList = () => {
     const {user, onClose} = useTelegram()
+    const [adada, setAdada] = useState('')
 
     return (
         <div>
@@ -16,11 +17,13 @@ const ProductList = () => {
                     className={'input'} 
                     type='text' 
                     placeholder={'Страна'}
+                    value={adada}
                 />
                 <input 
                     className={'input'}
                     type='text' 
-                    placeholder={'Улица'} 
+                    placeholder={'Улица'}
+                    value='asdapdpadp' 
                 />
                 {/* <select value={subject} onChange={onChangeSubject} className={'select'}>
                     <option value={'physical'}>Физ. лицо</option>

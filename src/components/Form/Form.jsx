@@ -12,40 +12,40 @@ const Form = () => {
 
     const onSendData = useCallback(()=>{
 
-    }, [])
+    }, []);
 
     useEffect(()=>{
         Telegram.WebApp.onEvent('mainButtonClicked', onSendData);
         return () => {
             Telegram.WebApp.offEvent('mainButtonClicked', onSendData);
         }
-    }, [])
+    }, []);
 
     useEffect(()=>{
         tg.MainButton.setParams({
             text: 'Отправить данные'
         })
-    }, [])
+    }, []);
 
     useEffect(()=>{
         if(!street || !country) {
-            tg.MainButton.hide()
+            tg.MainButton.hide();
         } else {
-            tg.MainButton.show()
+            tg.MainButton.show();
         }
-    },[country, street])
+    },[country, street]);
 
     const onChangeCountry = (e) => {
-        setCountry(e.target.value)
-    }
+        setCountry(e.target.value);
+    };
 
     const onChangeStreet = (e) => {
-        setStreet(e.target.value)
-    }
+        setStreet(e.target.value);
+    };
 
     const onChangeSubject = (e) => {
-        setSubject(e.target.value)
-    }
+        setSubject(e.target.value);
+    };
 
     return (
         <div className='form'>
