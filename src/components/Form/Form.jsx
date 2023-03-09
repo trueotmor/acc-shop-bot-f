@@ -5,8 +5,8 @@ import './Form.css'
 
 const Form = () => {
 
-    const [country, setCountry] = useState('');
-    const [street, setStreet] = useState('');
+    const [country, setCountry] = useState('usa');
+    const [street, setStreet] = useState('trump');
     const [subject, setSubject] = useState('physical');
     const {tg} = useTelegram();
 
@@ -17,7 +17,8 @@ const Form = () => {
             subject,
         };
 
-        tg.sendData(JSON.stringify(data));
+        // tg.sendData(JSON.stringify(data));
+        tg.sendData('asdasda');
         console.log(data);
     }, [country, street, subject]);
 
