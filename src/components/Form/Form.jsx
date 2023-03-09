@@ -10,30 +10,36 @@ const Form = () => {
     const [subject, setSubject] = useState('physical')
     const {tg} = useTelegram()
 
-    // const onSendData = useCallback(()=>{
+    const onSendData = useCallback(()=>{
+        const data = {
+            country,
+            street,
+            subject,
+        };
 
-    // }, []);
+        tg.sendData(JSON.stringify(data));
+    }, []);
 
-    // useEffect(()=>{
-    //     Telegram.WebApp.onEvent('mainButtonClicked', onSendData);
-    //     return () => {
-    //         Telegram.WebApp.offEvent('mainButtonClicked', onSendData);
-    //     }
-    // }, []);
+    useEffect(()=>{
+        tg.onEvent('mainButtonClicked', onSendData);
+        return () => {
+            tg.offEvent('mainButtonClicked', onSendData);
+        }
+    }, []);
 
-    // useEffect(()=>{
-    //     tg.MainButton.setParams({
-    //         text: 'Отправить данные'
-    //     })
-    // }, []);
+    useEffect(()=>{
+        tg.MainButton.setParams({
+            text: 'Отправить данные'
+        })
+    }, []);
 
-    // useEffect(()=>{
-    //     if(!street || !country) {
-    //         tg.MainButton.hide();
-    //     } else {
-    //         tg.MainButton.show();
-    //     }
-    // },[country, street]);
+    useEffect(()=>{
+        if(!street || !country) {
+            tg.MainButton.hide();
+        } else {
+            tg.MainButton.show();
+        }
+    },[country, street]);
 
     const onChangeCountry = (e) => {
         setCountry(e.target.value);
