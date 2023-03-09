@@ -5,8 +5,8 @@ import './Form.css'
 
 const Form = () => {
 
-    const [country, setCountry] = useState('russsia')
-    const [street, setStreet] = useState('dmmdmmd')
+    const [country, setCountry] = useState('')
+    const [street, setStreet] = useState('')
     const [subject, setSubject] = useState('physical')
     const {tg} = useTelegram()
 
@@ -18,7 +18,8 @@ const Form = () => {
         };
 
         tg.sendData(JSON.stringify(data));
-    }, []);
+        console.log(data);
+    }, [country, street, subject]);
 
     useEffect(()=>{
         tg.onEvent('mainButtonClicked', onSendData);
