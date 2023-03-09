@@ -50,7 +50,7 @@ const Form = () => {
     return (
         <div className='form'>
             <h3>Введите ваши данные</h3>
-            {/* <input 
+            <input 
                 className={'input'} 
                 type='text' 
                 placeholder={'Страна'}
@@ -63,11 +63,11 @@ const Form = () => {
                 placeholder={'Улица'} 
                 value= {street}
                 onChange={onChangeStreet}
-            /> */}
-            {/* <select value={subject} onChange={onChangeSubject} className={'select'}>
+            />
+            <select value={subject} onChange={onChangeSubject} className={'select'}>
                 <option value={'physical'}>Юр. лицо</option>
                 <option value={'legal'}>Физ. лицо</option>
-            </select> */}
+            </select>
         </div>
     );
 };
