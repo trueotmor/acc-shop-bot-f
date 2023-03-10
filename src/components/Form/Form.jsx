@@ -10,21 +10,21 @@ const Form = () => {
     const [subject, setSubject] = useState('physical');
     const {tg} = useTelegram();
 
-    const onSendData = useCallback(()=>{
-        const data = {
-            country,
-            street,
-            subject,
-        };
-        tg.sendData(JSON.stringify(data));
-    }, [country, street, subject]);
+    // const onSendData = useCallback(()=>{
+    //     const data = {
+    //         country,
+    //         street,
+    //         subject,
+    //     };
+    //     tg.sendData(JSON.stringify(data));
+    // }, [country, street, subject]);
 
-    useEffect(()=>{
-        tg.onEvent('mainButtonClicked', tg.sendData('asdasda'));
-        return () => {
-            tg.offEvent('mainButtonClicked', onSendData);
-        }
-    }, [onSendData]);
+    // useEffect(()=>{
+    //     tg.onEvent('mainButtonClicked', tg.sendData('asdasda'));
+    //     return () => {
+    //         tg.offEvent('mainButtonClicked', onSendData);
+    //     }
+    // }, [onSendData]);
 
     useEffect(()=>{
         tg.MainButton.setParams({
@@ -55,7 +55,7 @@ const Form = () => {
     return (
         <div className='form'>
             <h3>Введите ваши данные</h3>
-            <input 
+            {/* <input 
                 className={'input'} 
                 type='text' 
                 placeholder={'Страна'}
@@ -68,7 +68,7 @@ const Form = () => {
                 placeholder={'Улица'} 
                 value= {street}
                 onChange={onChangeStreet}
-            />
+            /> */}
             <select value={subject} onChange={onChangeSubject} className={'select'}>
                 <option value={'physical'}>Юр. лицо</option>
                 <option value={'legal'}>Физ. лицо</option>
