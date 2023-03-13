@@ -11,10 +11,10 @@ const ProductItem = ({account, className, onAdd}) => {
     return (
         <div className={'product ' + className}>
             <div className={'img'}/>
-            <div className={'title'}>{product.title}</div>
-            <div className={'description'}>{product.description}</div>
+            <div className={'title'}>{account.title}</div>
+            <div className={'description'}>{account.description}</div>
             <div className={'price'}>
-                <span>Стоимость: <b>{product.price}</b></span>
+                <span>Стоимость: <b>{account.price}</b></span>
             </div>
             <Button className={'add-btn'} onClick={onAddHandler}>
                 Добавить в корзину
