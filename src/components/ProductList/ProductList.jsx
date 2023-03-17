@@ -22,14 +22,15 @@ const ProductList = () => {
 
     const [addedItems, setAddedItems] = useState([]);
 
-    const {tg} = useTelegram();
+    const {tg, queryId} = useTelegram();
 
     const onSendData = useCallback(()=>{
         const data = {
             accounts: addedItems,
             totalPrice: getTotalPrice(addedItems),
+            queryId, 
         };
-        fetch('https://localhost:8000', {
+        fetch('https://acc-shop.herokuapp.com:8000', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/JSON',
