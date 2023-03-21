@@ -30,7 +30,7 @@ const ProductList = () => {
             totalPrice: getTotalPrice(addedItems),
             queryId, 
         };
-        fetch('https://acc-shop.herokuapp.com:8000', {
+        fetch('https://acc-shop.herokuapp.com:8000/web-data', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/JSON',
