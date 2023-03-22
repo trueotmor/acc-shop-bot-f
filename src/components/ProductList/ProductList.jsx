@@ -30,14 +30,14 @@ const ProductList = () => {
             totalPrice: getTotalPrice(addedItems),
             queryId, 
         };
-        fetch('https://acc-shop.herokuapp.com:8000/web-data', {
+        fetch('https://acc-shop-bot.herokuapp.com:8000/web-data', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/JSON',
             },
             body: JSON.stringify(data),
         })
-    }, []);
+    }, [addedItems]);
 
     useEffect(()=>{
         tg.onEvent('mainButtonClicked', onSendData);
