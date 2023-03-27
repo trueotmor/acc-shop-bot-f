@@ -17,7 +17,6 @@ const accounts = [
     {id: '16384968', title: 'Стартовый аккаунт: ТОР+Гайронул', price: 4317, description: 'Аккаунт новый пройдено обучение до 1-8. Уровень: 3-4. Легендарные: ТОР+Гайронул Эпики: Беран,Харбег,Розлин,Борден,Кейн', link: 'https://funpay.com/en/lots/offer?id=16384968', image: ''},
 ];
 
-
 const ProductList = () => {
 
     const [addedItems, setAddedItems] = useState([]);
